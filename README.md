@@ -52,4 +52,4 @@ Para ampliar información puedes consultar:
 - Documentación oficial de React  
 - El documento del proyecto tecnico
 
-## y ya estaria
+## Y ya estaría.
