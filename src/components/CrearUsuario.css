@@ -1,0 +1,43 @@
+/* 
+   CREARUSUARIO.CSS - Estilos del formulario de registro
+  
+   SE USA EN:
+   Solo en el componente CrearUsuario.js (la pantalla de login)
+   
+  DEFINE:
+   - .crear-usuario-container -- Contenedor que centra el formulario
+   - .crear-usuario-form      -- La tarjeta blanca del formulario
+   
+   Las clases .input-field, .select-field, .error-message y .btn-primary
+   ya están definidas en styles/_forms.css y styles/_buttons.css
+   
+   */
+
+/* Contenedor que centra el formulario */
+.crear-usuario-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* La tarjeta blanca que contiene el formulario */
+.crear-usuario-form {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+}
+
+/* Título "Crear usuario" */
+.crear-usuario-form h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* El botón dentro del form ocupa todo el ancho */
+.crear-usuario-form .btn-primary {
+  width: 100%;
+  margin-top: 0.5rem;
+}

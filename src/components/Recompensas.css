@@ -1,0 +1,155 @@
+/*
+    RECOMPENSAS.CSS - Estilos de la tienda de recompensas
+
+   Solo en el componente Recompensas.js (página /recompensas)
+   
+CONTIENE:
+   - Contenedor principal de la tienda
+   - Tarjetas de cada recompensa
+   - Estados: canjeable (verde) y no canjeable (gris)
+   - Badges de puntos necesarios
+   
+   Las clases .puntos-card y .btn-canjear ya están en 
+   styles/_cards.css y styles/_buttons.css
+ */
+
+ /*
+ CONTENEDOR PRINCIPAL
+ */
+
+.recompensas-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.recompensas-section {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  margin-bottom: 0;
+}
+
+.recompensas-section > h3 {
+  margin: 0 0 1.5rem 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/*
+   LISTA DE RECOMPENSAS
+ */
+
+.recompensas-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/*
+   TARJETA DE RECOMPENSA - Cada item de la lista
+   */
+
+.recompensa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.25rem;
+  border: 2px solid #d1d5db;
+  border-radius: 6px;
+  background: rgba(107, 114, 128, 0.05);
+  transition: all var(--transition-base);
+}
+
+/* Estado: Recompensa CANJEABLE (cuando tienes suficientes puntos) */
+.recompensa-item.canjeables {
+  border-color: #22C55E;
+  background: rgba(34, 197, 94, 0.08);
+}
+
+.recompensa-item.canjeables:hover {
+  border-color: #22C55E;
+  background: rgba(34, 197, 94, 0.2);
+}
+
+/* Hover general */
+.recompensa-item:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+  background-color: rgba(107, 114, 128, 0.1);
+}
+
+/* 
+   INFORMACIÓN DE LA RECOMPENSA
+   */
+
+.recompensa-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.recompensa-nombre {
+  display: block;
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--foreground);
+  margin: 0;
+}
+
+.recompensa-descripcion {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+/* 
+   FOOTER - Botón + badge de puntos
+   */
+
+.recompensa-footer {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+/* Badge de puntos necesarios */
+.recompensa-puntos {
+  background: rgba(107, 114, 128, 0.15);
+  color: #6b7280;
+  padding: 0.375rem 0.875rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* Puntos en verde cuando es canjeable */
+.recompensa-item.canjeables .recompensa-puntos {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22C55E;
+}
+
+/* 
+   ESTADO VACÍO - Cuando no hay recompensas
+   */
+
+.recompensas-vacio {
+  text-align: center;
+  color: var(--muted-foreground);
+  padding: 2rem 1rem;
+  font-style: italic;
+  font-size: 1rem;
+}

@@ -1,0 +1,45 @@
+/*
+ página de tareas - estilos específicos para la página /tareas
+
+   SE USA EN:
+   PaginaTareas.js
+
+   CONTIENE:
+   - Estilos para las pestañas de categorías (tareas, recompensas, estadísticas)
+   - Estilos para el contenido de cada pestaña
+   - Estilos para estados de tareas (completada, pendiente, urgente)
+   - Animaciones sutiles para mejorar la experiencia
+
+   Las clases .tarea-card y .estado-urgente ya están en 
+   styles/_cards.css
+ */
+.tareas-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.tab-button {
+  padding: 0.75rem 1.25rem;
+  background: transparent;
+  border: none;
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.tab-button:hover {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+}
+
+.tab-button.active {
+  color: #ffffff;
+  background: #28ac71;
+  font-weight: 600;
+}

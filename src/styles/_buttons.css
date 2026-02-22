@@ -1,0 +1,151 @@
+/*  
+BOTONES - Todos los estilos de botones de la app
+
+    .btn-primary   - Botón verde principal (Entrar, Crear, Confirmar)
+    .btn-empezar  - Botón azul para "Empezar tarea"
+    .btn-completar - Botón verde para "Completar tarea"
+   .btn-asignar    - Botón verde para "Asignármela"
+   .btn-canjear    - Botón verde para canjear recompensas
+   */
+
+/*
+ ESTILOS BASE - Compartidos por TODOS los botones
+ */
+
+button,
+.btn {
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition-base) ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  outline: none;
+}
+
+/* Cuando el botón está desactivado (disabled) */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* 
+   BOTÓN PRIMARIO - Verde, para acciones principales
+   Usado en: Login, CrearUsuario, CrearTarea, Cerrar Sesión
+   */
+
+.btn-primary,
+button[type="submit"] {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border: none;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: 0.3px;
+}
+
+/* Efecto hover: se eleva y tiene sombra verde */
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(40, 172, 113, 0.35);
+}
+
+/* Efecto click: baja un poco */
+.btn-primary:active:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(40, 172, 113, 0.25);
+}
+
+/* 
+   BOTONES DE TAREAS - Para gestionar el estado de las tareas
+   */
+
+/* Estilos compartidos por los 3 botones de tareas */
+.btn-empezar,
+.btn-completar,
+.btn-asignar {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  font-size: 0.95rem;
+  white-space: nowrap;
+  margin-left: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* EMPEZAR - Azul, cambia tarea de "pendiente" a "en curso" */
+.btn-empezar {
+  background: #0EA5E9;
+  color: white;
+}
+
+.btn-empezar:hover {
+  background: #0284c7;
+  box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+  transform: translateY(-2px);
+}
+
+/* COMPLETAR - Verde, marca la tarea como "finalizada" */
+.btn-completar {
+  background: #22C55E;
+  color: white;
+}
+
+.btn-completar:hover {
+  background: #16a34a;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ASIGNAR - Verde Homely, asigna una tarea al usuario */
+.btn-asignar {
+  background: #28ac71;
+  color: white;
+}
+
+.btn-asignar:hover {
+  background: #1d8659;
+  box-shadow: 0 4px 12px rgba(40, 172, 113, 0.3);
+  transform: translateY(-2px);
+}
+
+/* 
+   BOTÓN CANJEAR - Para canjear recompensas
+   */
+
+.btn-canjear {
+  padding: 0.625rem 1.25rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-canjear:hover:not(:disabled) {
+  background: #1d8659;
+  box-shadow: 0 4px 12px rgba(40, 172, 113, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Cuando no tienes suficientes puntos */
+.btn-canjear:disabled {
+  background: #d1d5db;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}

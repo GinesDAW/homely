@@ -1,0 +1,309 @@
+/* 
+  PAGINAINICIO.CSS - Estilos del dashboard de inicio
+   
+ SE USA EN:
+   Solo en PaginaInicio.js la de despues del login
+   
+    CONTIENE:
+   - Encabezado de bienvenida
+   - Sección de tareas urgentes (las rojas que llaman la atención)
+   - Resumen de estadísticas (pendientes, en curso, finalizadas)
+   - Recordatorio animado
+
+   */
+
+/* 
+   CONTENEDOR PRINCIPAL
+   */
+
+.pagina-inicio {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 
+   SECCIÓN DE BIENVENIDA - El saludo inicial
+   */
+
+.inicio-header {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.inicio-header h2 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.saludo-usuario {
+  font-size: 1.2rem;
+  color: var(--foreground);
+  margin: 0.5rem 0 0 0;
+}
+
+/* 
+   CONTENEDOR PUNTOS + STATS - Agrupa la tarjeta de puntos con estadísticas
+   */
+
+.puntos-stats-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 0;
+}
+
+/* 
+   SECCIÓN DE TAREAS URGENTES - Las tareas rojas que necesitan atención
+   */
+
+.urgentes-section {
+  margin-bottom: 1rem;
+}
+
+.urgentes-section h3 {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.5rem;
+  color: var(--danger);
+  font-weight: var(--font-weight-bold);
+}
+
+.urgentes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tarea-urgente-item {
+  background: rgba(239, 68, 68, 0.05);
+  border: 2px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all var(--transition-base);
+}
+
+/* Estilos adicionales cuando es clickeable */
+.tarea-urgente-item--clickeable {
+  cursor: pointer;
+  animation: pulse-urgente 2s infinite;
+}
+
+.tarea-urgente-item--clickeable:hover {
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.25);
+  transform: translateY(-2px);
+  border-color: #B91C1C;
+  background: rgba(239, 68, 68, 0.15);
+}
+
+.tarea-urgente-item--clickeable:active {
+  transform: translateY(0);
+}
+
+.tarea-urgente-item:not(.tarea-urgente-item--clickeable):hover {
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+  transform: translateX(4px);
+}
+
+.tarea-urgente-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.tarea-urgente-contenido {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tarea-urgente-titulo {
+  font-weight: var(--font-weight-bold);
+  color: #EF4444;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.tarea-urgente-fecha {
+  font-size:  1.1rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.urgentes-vacio {
+  background: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--success);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 
+   SECCIÓN DE RESUMEN
+   */
+
+.resumen-section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.resumen-section h3 {
+  margin: 0 0 1.25rem 0;
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.resumen-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.resumen-item {
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Colores por tipo de tarea */
+.resumen-item.resumen-pendientes {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.resumen-item.resumen-pendientes .resumen-numero {
+  color: #F59E0B;
+}
+
+.resumen-item.resumen-sin-asignar {
+  background: rgba(96, 86, 105, 0.1);
+  border-color: rgba(96, 86, 105, 0.3);
+}
+
+.resumen-item.resumen-sin-asignar .resumen-numero {
+  color: #605669;
+}
+
+.resumen-item.resumen-en-curso {
+  background: rgba(14, 165, 233, 0.1);
+  border-color: rgba(14, 165, 233, 0.3);
+}
+
+.resumen-item.resumen-en-curso .resumen-numero {
+  color: #0EA5E9;
+}
+
+.resumen-item.resumen-finalizadas {
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.3);
+}
+
+.resumen-item.resumen-finalizadas .resumen-numero {
+  color: #22C55E;
+}
+
+.resumen-label {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 0.25;
+  font-weight: var(--font-weight-bold);
+}
+
+.resumen-numero {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--primary);
+  margin: 0;
+}
+
+/* 
+   MENSAJE DE RECORDATORIO
+   */
+
+.recordatorio {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(245, 158, 11, 0.05) 100%);
+  border-radius: var(--radius);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 1rem;
+  color: var(--warning);
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-medium);
+  margin-top: 0;
+}
+
+/*  recordatorio clickeable - navegación a tareas */
+.recordatorio--clickeable {
+  cursor: pointer;
+  transition: all var(--transition-base);
+  animation: pulse 2s infinite;
+}
+
+.recordatorio--clickeable:hover {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%);
+  border-color: rgba(245, 158, 11, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.recordatorio--clickeable:active {
+  transform: translateY(0);
+}
+
+/* 
+   ANIMACIÓN DE PULSE
+ */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.7);
+  }
+  50% {
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(245, 158, 11, 0.35);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(245, 158, 11, 0.2);
+  }
+}
+
+@keyframes pulse-urgente {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.7);
+  }
+  50% {
+    transform: scale(1.01);
+    box-shadow: 0 6px 16px rgba(239, 68, 68, 0.35);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 16px rgba(239, 68, 68, 0.2);
+  }
+}

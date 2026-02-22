@@ -1,0 +1,90 @@
+/* 
+    MENU.CSS - Estilos del menú de navegación
+   
+  SE USA EN:
+   Solo en el componente Menu.js (dentro del navbar en App.js)
+   
+  DEFINE:
+   - .nav-menu   - Contenedor horizontal del menú
+   - .nav-logo   - El logo de Homely en el menú
+   - .nav-link   - Cada link de navegación (Inicio, Tareas, Recompensas)
+   
+   */
+
+/* Contenedor del menú - horizontal con espacio entre items */
+.nav-menu {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 0;
+  border-bottom: none;
+  padding-bottom: 0;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+/* Logo de Homely en el menú */
+.nav-logo {
+  height: 75px;
+  object-fit: contain;
+  margin-right: 2rem;
+}
+
+/* Cada link de navegación */
+.nav-link {
+  padding: 0.75rem 1.25rem;
+  color: var(--muted-foreground);       /* Gris cuando no está activo */
+  text-decoration: none;
+  transition: all var(--transition-base);
+  font-weight: var(--font-weight-medium);
+  font-size: 1.125rem;
+  position: relative;
+  border-radius: 8px;
+}
+
+/* Efecto hover: fondo verde claro y texto verde */
+.nav-link:hover {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.15);
+  box-shadow: 0 8px 16px rgba(16, 185, 129, 0.2);
+}
+
+/* Link activo: fondo verde sólido y texto blanco */
+.nav-link.active {
+  color: #ffffff;
+  background: #28ac71;
+}
+/* 
+   RESPONSIVE - Laptops pequeñas y medianas (hasta 1280px)
+  */
+
+@media (max-width: 1280px) {
+  .nav-menu {
+    gap: 1.5rem;
+  }
+
+  .nav-logo {
+    height: 55px;
+    margin-right: 1rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+
+  .nav-logo {
+    height: 45px;
+    margin-right: 0.75rem;
+  }
+
+  .nav-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.95rem;
+  }
+}

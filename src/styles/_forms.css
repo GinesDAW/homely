@@ -1,0 +1,163 @@
+/* 
+   
+  FORMULARIOS - Inputs, selects y campos de texto
+   
+   1. .input-field     - Campos de texto (nombre, email, password)
+   2. .select-field    - Desplegables (rol, urgencia, tipo)
+   3. .textarea-field  - Áreas de texto grandes (descripción)
+   4. .form-group      - Contenedor de label + input
+   5. .form-row        - Fila con 2 campos lado a lado
+   6. .error-message   - Mensaje de error rojo
+
+    SE USAN EN:
+   - Login.js         - input-field, error-message
+   - CrearUsuario.js  - input-field, select-field, error-message
+   - CrearTarea.js    - input-field, select-field, textarea-field
+   
+  */
+
+/*
+   CAMPOS DE TEXTO - Inputs normales :texto, email, password
+   */
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--input-background);
+  color: var(--foreground);
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+
+/* Texto placeholder  */
+.input-field::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Cuando haces click en el campo (focus) - borde verde */
+.input-field:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(40, 172, 113, 0.1);
+  background-color: var(--card);
+}
+
+/*
+   DESPLEGABLES - Selects :rol, urgencia, tipo de tarea
+   */
+
+.select-field {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: inherit;
+  background-color: var(--input-background);
+  color: var(--foreground);
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  
+  /* Flecha personalizada del desplegable */
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.select-field:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(40, 172, 113, 0.1);
+  background-color: var(--card);
+}
+
+/*
+   ÁREA DE TEXTO - Para descripciones largas :texto, email, password
+   */
+
+.textarea-field {
+  width: 100%;
+  padding: 0.625rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-family: inherit;
+  background-color: var(--input-background);
+  color: var(--foreground);
+  transition: all var(--transition-base);
+  box-sizing: border-box;
+  min-height: 70px;
+  resize: vertical;      
+  line-height: 1.4;
+}
+
+.textarea-field:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 3px rgba(40, 172, 113, 0.1);
+  background-color: var(--card);
+}
+
+/*
+   GRUPOS DE FORMULARIO - Contenedor de label + campo
+   */
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+/* Labels (etiquetas como "Nombre:", "Email:") */
+.form-group label,
+.form-col label {
+  display: block;
+  font-weight: var(--font-weight-medium);
+  color: var(--foreground);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/*
+   FILAS DE FORMULARIO - 2 campos lado a lado
+   */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2 columnas iguales */
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+/*
+   MENSAJE DE ERROR - Texto rojo cuando algo sale mal
+   */
+
+.error-message {
+  background-color: rgba(239, 68, 68, 0.1);  /* Fondo rojo claro */
+  color: var(--danger);                       /* Texto rojo */
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  border-left: 4px solid var(--danger);       /* Línea roja a la izquierda */
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+}

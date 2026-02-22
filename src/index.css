@@ -1,13 +1,90 @@
+/*
+INDEX.CSS - ESTILOS GLOBALES
+   
+   Este es el archivo CSS "raíz" de toda la aplicación. Se carga primero
+   y afecta a TODAS las páginas.
+   
+    Importa los estilos base (variables, botones, formularios, tarjetas)
+    Define estilos globales (body, html, scrollbar)
+
+/*
+   IMPORTAR ESTILOS BASE
+   Estos archivos contienen los estilos compartidos por toda la app */
+
+@import './styles/_variables.css';   /* Colores y medidas */
+@import './styles/_buttons.css';     /* Todos los botones */
+@import './styles/_forms.css';       /* Inputs, selects, textareas */
+@import './styles/_cards.css';       /* Tarjeta de puntos */
+
+/* 
+   ESTILOS GLOBALES - Se aplican a toda la app
+ */
+
+/* Reset básico: todos los elementos usan est colores de borde */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+  outline-color: var(--ring);
+}
+
+/* Tamaño base de la fuente (16px) */
+html {
+  font-size: var(--font-size-base);
+}
+
+/* Estilos del body - el contenedor de la  app */
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  font-family: var(--font-family);
+  background-color: var(--background);  /* Fondo gris claro */
+  color: var(--foreground);             /* Texto casi negro */
+  line-height: 1.5;                     /* Espaciado entre líneas */
+  overflow-x: hidden;                   /* Evita scroll horizontal */
+  
+  /* Hace que el texto se vea mas claro */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Estilo para código (si se usa en algún lugar) */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: var(--font-family-mono);
+  font-size: 0.875em;
+  background-color: var(--muted);
+  padding: 0.2em 0.4em;
+  border-radius: var(--radius-sm);
+}
+
+/* ═
+   SCROLLBAR PERSONALIZADO - La barra de desplazamiento verde
+ */
+
+/* Para Firefox aunque salga una advertencia que no es soportado, dejarlo */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--muted);
+}
+
+/* Para Chrome, Safari, Edge */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--primary);  /* Verde Homely */
+  border-radius: 4px;
+  transition: background var(--transition-fast) ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-hover);  /* Verde más oscuro al pasar mouse */
 }

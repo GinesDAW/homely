@@ -1,38 +1,142 @@
+/* 
+    APP.CSS - Layout principal de la aplicación
+
+   ¿QUÉ CONTIENE?
+   Este archivo define la ESTRUCTURA GENERAL de la app:
+   - La barra de navegación (navbar)
+   - El contenedor principal (wrapper)
+   - La página de login
+   */
+
+/* 
+   CONTENEDOR RAÍZ - Ocupa toda la pantalla
+   */
+
 .App {
-  text-align: center;
+  min-height: 100vh;              /* Altura mínima = toda la pantalla */
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* 
+   WRAPPER PRINCIPAL - Centra el contenido con ancho máximo
+   */
+
+.app-wrapper {
+  flex: 1;
+  max-width: 1200px;              /* Ancho máximo del contenido */
+  margin: 0 auto;                 /* Centra horizontalmente */
+  width: 100%;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+   BARRA DE NAVEGACIÓN - Contiene el menú y botón de cerrar sesión
+ */
+
+.app-navbar {
+  background: var(--card);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-lg);
+  display: flex;
+  justify-content: space-between;  /* Menú a la izquierda, botón a la derecha */
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-.App-header {
-  background-color: #282c34;
+/* Lado izquierdo: contiene el componente Menu */
+.navbar-left {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Lado derecho: contiene el botón "Cerrar sesión" */
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+}
+
+/*
+   CONTENIDO PRINCIPAL - Donde se renderiza cada página
+  */
+
+.app-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* 
+   PÁGINA DE LOGIN - Se muestra cuando NO hay usuario conectado
+   */
+
+.login-page {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;        /* Centra todo verticalmente */
+  padding: 2rem;
+  gap: 2rem;
+  background: var(--background);
 }
 
-.App-link {
-  color: #61dafb;
+/* Logo grande de Homely en la página de login */
+.logo-login {
+  width: 300px;
+  height: auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Contenedor de los 2 formularios (Login + CrearUsuario) */
+.login-forms-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* 2 columnas lado a lado */
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+}
+
+/* Cada formulario está dentro de un "wrapper" con fondo blanco */
+.login-form-wrapper {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/*
+   RESPONSIVE - Adaptación para pantallas pequeñas
+  */
+
+/* Pantallas medianas (hasta 1280px) */
+@media (max-width: 1280px) {
+  .app-wrapper {
+    padding: 1.25rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .app-navbar {
+    padding: 0.5rem 1.25rem;
+  }
+}
+
+/* Laptops pequeñas (1024px o menos) */
+@media (max-width: 1024px) {
+  .app-wrapper {
+    padding: 1rem;
+  }
+
+  .app-navbar {
+    padding: 0.5rem 1rem;
+  }
+
+  /* En pantallas pequeñas, los formularios van uno debajo del otro */
+  .login-forms-container {
+    grid-template-columns: 1fr;
+    max-width: 500px;
   }
 }

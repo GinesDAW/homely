@@ -1,0 +1,94 @@
+/*
+   
+   VARIABLES CSS - Colores, tamaños y estilos globales de la app
+   guarda todos los colores, tamaños y estilos que se usan
+   en toda la aplicación.
+  
+   */
+
+:root {
+  /* 
+   COLORES PRINCIPALES - Los colores  de Homely
+      */
+  
+  /* Verde Homely - El color principal de la app (botones, links, acentos) */
+  --primary: #28ac71;
+  --primary-light: #3dd98c;       /* Verde más claro para fondos sutiles */
+  --primary-hover: #229960;       /* Verde oscuro cuando pasas el mouse */
+  --primary-dark: #1a7a4a;        /* Verde muy oscuro para énfasis fuerte */
+  --primary-foreground: #ffffff;  /* Texto blanco sobre fondos verdes */
+
+  /* Gris secundario - Para elementos menos importantes */
+  --secondary: #605669;
+  --secondary-foreground: #ffffff;
+
+  /* 
+   FONDOS Y TEXTO - Los colores base de la interfaz
+   */
+  
+  --background: #f5f5f7;          /* Fondo gris claro de toda la app */
+  --foreground: #322b38;          /* Color del texto normal (casi negro) */
+  
+  --card: #ffffff;                /* Fondo blanco de las tarjetas */
+  --muted: #f5f5f5;               /* Gris muy claro para elementos desactivados */
+  --muted-foreground: #605669;    /* Texto gris para info secundaria */
+
+  /* 
+   COLORES DE ESTADO - Indican si algo está bien, mal o advertencia
+      */
+  
+  /* Verde éxito - Cuando algo sale bien o está completado */
+  --success: #22C55E;
+  --success-light: #86EFAC;
+  --success-dark: #15803D;
+
+  /* Naranja advertencia - Cuidado, atención requerida */
+  --warning: #F59E0B;
+  --warning-light: #FCD34D;
+  --warning-dark: #B45309;
+
+  /* Rojo peligro - Errores, eliminar, urgente */
+  --danger: #EF4444;
+  --danger-light: #FCA5A5;
+  --danger-dark: #B91C1C;
+  --danger-foreground: #ffffff;
+
+  /* Azul información - Datos informativos, "en curso" */
+  --info: #0EA5E9;
+  --info-light: #7DD3FC;
+  --info-dark: #0369A1;
+
+  /* 
+    BORDES Y FORMULARIOS
+      */
+  
+  --border: rgba(50, 43, 56, 0.1);  /* Borde sutil casi invisible */
+  --input-background: #ffffff;      /* Fondo blanco de los campos de texto */
+  --ring: #28ac71;                  /* Color del borde cuando haces click en un input */
+
+  /* 
+    TAMAÑOS Y REDONDEOS - Esquinas redondeadas
+      */
+  
+  --radius: 0.75rem;              /* 12px - Redondeo estándar */
+  --radius-sm: 0.5rem;            /* 8px - Redondeo pequeño */
+  --radius-lg: 0.75rem;           /* 12px - Redondeo grande (igual que estándar) */
+
+  /* 
+     TRANSICIONES - Velocidad de las animaciones
+     */
+  
+  --transition-fast: 150ms;       /* Rápido: hovers en links */
+  --transition-base: 200ms;       /* Normal: cambios en botones */
+
+  /*
+    TIPOGRAFÍA - Fuentes y pesos del texto
+    */
+  
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 
+                 'Oxygen', 'Ubuntu', sans-serif;
+  --font-family-mono: source-code-pro, Menlo, Monaco, Consolas, monospace;
+  --font-size-base: 16px;
+  --font-weight-medium: 500;      /* Texto semi-negrita */
+  --font-weight-bold: 700;        /* Texto negrita */
+}

@@ -1,0 +1,39 @@
+/*
+    CREARTAREA.CSS - Estilos del formulario de crear tarea
+   
+    SE USA EN:
+   Solo en el componente CrearTarea.js (pestaña "Crear" en /tareas)
+   
+   DEGINE:
+   - .crear-tarea-form  -- La tarjeta blanca del formulario
+   
+  Las clases de inputs (.input-field, .select-field, .textarea-field)
+   y estructura (.form-group, .form-row, .form-col) ya están en styles/_forms.css
+   
+  */
+
+/* La tarjeta blanca que contiene el formulario */
+.crear-tarea-form {
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid var(--border);
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* Título del formulario */
+.crear-tarea-form h3 {
+  margin: 0 0 1rem 0;
+  color: var(--primary);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* El botón de crear ocupa todo el ancho */
+.crear-tarea-form .btn-primary {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.75rem;
+}
